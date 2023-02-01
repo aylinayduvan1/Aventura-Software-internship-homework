@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hesap makinesi</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(56, 54, 58);
+        }
+        html{
+            font-size: 20px;
+        }
+        .ekran{
+            background-color:  rgb(225, 216, 230);
+            width: 400px;
+            top: 50%;
+            left: 50%;
+            border-radius: 12px;
+            transform: translate(-50%, -50%);
+            position: absolute;
+        }
+        .sonuc{
+            width: 100%;
+            height: 70px;
+            background-color: rgb(221, 199, 234);
+            text-align: left;
+            padding-left: 10px;
+            padding-left: 10px;
+            font-size: large;
+            border-radius: 5px;
+        }
+        button{
+            height: 80px;
+            width: 85px;
+            border-radius: 12px;
+            border: 1px solid #c4c4c4;
+        }
+        button:hover{
+            background-color: rgb(221, 199, 234);
+            transition: 0.9s;
+        }
+        .islem{
+            background-color: rgb(126, 126, 235);
+        }
+        .islem:hover{
+            background-color: rgb(168, 168, 235);
+        }
+        .sil{
+            background-color: rgb(211, 50, 50);
+        }
+        .sil:hover{
+            background-color: rgb(240, 115, 115);
+        }
+        .esittir{
+            grid-area: 5/1/5/5;
+            width: 100%;
+            background-color: rgb(126, 126, 235);
+        }
+        .esittir:hover{
+            background-color: rgb(168, 168, 235);
+
+        }
+        .rakamlar{
+            display: grid;
+            grid-template-columns:repeat(4, 1fr);
+            grid-gap: 10px;
+            padding: 10px;
+        }
+        h1{
+            font-style: italic; 
+            font-size: 30px; 
+            color: rgb(225, 216, 230);
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hesap Makinesi</h1>
+    <div class="ekran">
+        <input type="text" class="sonuc" value="" disabled>
+
+        <div class="rakamlar">
+            <button type="button" class="rakam" value="1">1</button>
+            <button type="button" class="rakam" value="2">2</button>
+            <button type="button" class="rakam" value="3">3</button>
+            <button type="button" class="islem" value="+">+</button>
+
+
+            <button type="button" class="rakam" value="4">4</button>
+            <button type="button" class="rakam" value="5">5</button>
+            <button type="button" class="rakam" value="6">6</button>
+            <button type="button" class="islem" value="-">-</button>
+
+            
+            <button type="button" class="rakam" value="7">7</button>
+            <button type="button" class="rakam" value="8">8</button>
+            <button type="button" class="rakam" value="9">9</button>
+            <button type="button" class="islem" value="*">x</button>
+
+            <button type="button" class="decimal" value=".">.</button>
+            <button type="button" class="rakam" value="0">0</button>
+            <button type="button" class="sil" value="sil">C</button>
+            <button type="button" class="islem" value="/">/</button>
+            <button type="button" class="esittir islem" value="=">=</button>
+        </div>
+    </div>
+
+    <script>
+        const snc = document.querySelector('.sonuc')
+        const rkm = document.querySelector('.rakamlar')
+
+        let sonucdegeri = '0'; //ekranda ilk görünecek 0
+        let ilkdeger = null;
+        let islem = null;
+        let beklenenikincideger = false; //giriş yapılca true olacak.
+
+        gnceldeger();
+
+        function gnceldeger(){
+            snc.value = sonucdegeri; //snc içindeki değere ulaşığ onu sonudegeri değişkenine atıyoruz.
+        }
+        //kullanıcının tıklama işlemleri:
+        rkm.addEventListener('click', function(e){
+            const element = e.target; //target ile etiketlerin içini getirir.
+
+            if(!element.matches("button")) return;// buton olduğunu kontrol ediyor. matches
+
+            //+,-,/,* tıkladıysa
+            if(element.classList.contains("islem")){
+                islemoperator(element.value);
+                gnceldeger();
+                return;
+            }
+
+            //sil tıkladıysa
+            if(element.classList.contains("sil")){
+                silgrs(element.value);
+                gnceldeger();
+                return;
+            }
+
+            //= tıkladıysa
+            if(element.classList.contains("decimal")){ //= çağırıldığında 
+                esittirgrs(element.value); 
+                gnceldeger(); //inputta görünen sayıyı güncelliyoruz
+                return;
+            }
+            grs(element.value);
+            gnceldeger(); //her seferinde çağlması gerektiği için
+        });
+        function islemoperator(oper){
+            const value = parseFloat(sonucdegeri); //hesap makinesinde alınan değer nedir onu aldık.sonucdegerini yazmadık bu ondalıklı olabilir die dönüşüm yapıp value deşişkenine atadık.
+            
+            if(islem && beklenenikincideger){
+                islem = oper;
+                return;
+            }
+            if(ilkdeger === null){
+                ilkdeger = value //ilk bilgi girişi
+            }else if(oper){
+                const result = calculate(ilkdeger, value, islem);
+                sonucdegeri = `${parseFloat(result.toFixed(8))}`
+                ilkdeger = result;
+            }
+            beklenenikincideger = true; //ikinci sayı bekleniyor.
+            islem = oper  
+            console.log(sonucdegeri ,ilkdeger,beklenenikincideger,islem)  
+        }    
+        function calculate(birinci, ikinci, islem){
+            if(islem === '+'){
+                return birinci + ikinci;
+            }else if(islem === '-'){
+                return birinci - ikinci;
+            }else if(islem === '*'){
+                return birinci * ikinci;
+            }else if(islem === '/'){
+                return birinci / ikinci
+            }
+            return ikinci;
+        }
+        function grs(say){
+            if(beklenenikincideger){
+                sonucdegeri = say;
+                beklenenikincideger = false;
+            }else{
+            sonucdegeri = sonucdegeri === '0' ? say: sonucdegeri + say; //başta belirlenen sonuc degerini eğer sıfıra eşitse eğer değilse de 2.kere butona tıklandğında sonsayıyı silmeden yanına eklesin
+            }
+            console.log(sonucdegeri ,ilkdeger,beklenenikincideger,islem)
+        }
+        function esittirgrs(){
+            if(!sonucdegeri.includes(".")){ //. içermiyorsa . eklemesi için
+                sonucdegeri += ".";
+            }
+        }
+        function silgrs(){
+            sonucdegeri = "0"
+        }
+    </script>
+</body>
+</html>
