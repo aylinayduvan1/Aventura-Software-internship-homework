@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // let condition;
+
+    // do {
+    //     var sayi1 = prompt("1. sayıyı giriniz:");
+    //     console.log("1.sayiyi giriniz:" + sayi1);
+
+    //     var sayi2 = prompt("2. sayıyı giriniz:");
+    //     console.log("2.sayiyi giriniz:" + sayi2);
+
+    //     var secim = prompt("Lütfen yapıcağınız işlemi seçiniz: + - * /");
+        
+    //     switch (secim) {
+    //         case "+": alert(sayi1 + sayi2); break;
+    //         case "-": alert(sayi1 - sayi2); break;
+    //         case "*": alert(sayi1 * sayi2); break;
+    //         case "/": alert(sayi1 / sayi2); break;
+    //         default: alert("Dört işlemden birini seçiniz!"); break;
+    //     }
+    // } while (!(secim === "+" || secim === "-" || secim === "*" || secim === "/"));
+
+    let sayi1 = prompt("1. sayıyı giriniz:");
+
+    let sayi2 = prompt("2. sayıyı giriniz:");
+
+
+    let islem = prompt("yapmak istediğiniz işlemi seçiniz:");
+
+    function secim(islem){
+        if(islem === "+"){
+            return parseInt(sayi1) + parseInt(sayi2)
+        }else if(islem === "-"){
+            return parseInt(sayi1) - parseInt(sayi2)
+        }else if(islem === "*"){
+            return parseInt(sayi1) * parseInt(sayi2)
+        }else if(islem === "/"){
+            return parseInt(sayi1) / parseInt(sayi2)
+        }else{
+            return "Dört işlemden birini seçiniz!"
+        } 
+    }
+    console.log(secim(islem))
+
+</script>
+</html>
