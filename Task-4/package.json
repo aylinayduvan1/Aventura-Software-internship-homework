@@ -1,0 +1,11 @@
+{
+  "name": "task-4",
+  "version": "8.19.2",
+  "description": "task-4 nj projem",
+  "main": "task4.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aylin",
+  "license": "ISC"
+}
