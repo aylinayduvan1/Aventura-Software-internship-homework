@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider menü</title>
+    <link rel="stylesheet" type="text/css" href="task11.css">
+</head>
+<body>
+        <div class="menu">
+            <div class="active-link"></div>
+            <a href="#" class="active">ANA SAYFA</a>
+            <a href="#">HAKKIMDA</a>
+            <a href="#">BLOGUM</a>
+            <a href="#">GALERİM</a>
+        </div>
+
+    <script>
+        var menu =  document.querySelector('.menu');
+        var navlink = document.querySelectorAll('.menu a');
+        var activeLink =  document.querySelector('a.active');
+        var slide = document.querySelector('.active-link');
+
+        //click eventini tüm linklere eklemek için:
+        navlink.forEach(link =>{
+            link.addEventListener('click', slideToLink);
+        })
+        function slideToLink(e){
+            //active sınıfını kaldır.
+            removeActiveClass();
+
+            //sliderın tıklanan yere gitmesi
+            setActiveSlide(e.target);
+
+            //mevcut bağlantıyı aktif et
+            e.target.classList.add('active');
+        }
+        function removeActiveClass(){
+            //active bağlanıtıyı al
+            activeLink =  document.querySelector('a.active');
+            activeLink.classList.remove('active');
+        }
+        function setActiveSlide(target){
+            //hedefin sol notasını al
+            var left = getLeftValue(target);
+
+            //sol değeri mevcut bağlanıya ayarlıyorum.
+            slide.style.left = `${left}px`;
+        }
+        function getLeftValue(targetLink){
+            var targetLeft = targetLink.getBoundingClientRect().left;
+            var menuleft = menu.getBoundingClientRect().left;
+            return targetLeft - menuleft -5;
+        }
+        setActiveSlide(activeLink);
+    </script>
+</body>
+</html>
