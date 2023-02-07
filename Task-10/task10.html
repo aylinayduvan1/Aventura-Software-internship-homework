@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>meg bilişim</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="/favicon.ico"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+<body>
+    <div id="menu-bar">
+        <div class="ust-menu"> 
+            <span class="num">+90 232 320 03 35</span>
+            <div class="icon">
+                <p><i class="fab fa-facebook-f" style="color:white" ></i></p>
+                <p><i class="fab fa-instagram" style="color:white" ></i></p>
+                <p><i class="fa fa-envelope" style="color:white" ></i></p>
+            </div>
+        </div>
+        <div id="alt-menu">
+                <img  id="card-img" src="meglogo.webp" alt="meglogo" width="140" height="60"/>
+            <div class="menu" id="menuItems">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <ul>  
+                    <li><a href="task10.html" class="button">Ana Sayfa</a></li>
+                    <li><a href="hakkimizda.html" class="nav-link">Hakkımızda</a></li>
+                    <li><a href="iletisim.html" class="nav-link">Galeri</a></li>
+                    <li><a href="iletisim.html" class="nav-link">Ürünler</a></li>
+                    <li><a href="iletisim.html" class="nav-link">Blog</a></li>
+                    <li><a href="iletisim.html" class="nav-link">İletişim</a></li>
+                    <li><a href="iletisim.html" class="button ">Üst Giriş</a></li>
+                    <li><a href="iletisim.html" class="button">Rapor Giriş</a></li>
+                </ul>
+            </div>
+            <span style="font-size:30px;cursor:pointer" class="openbtn" onclick="openNav()">&#9776;</span>
+        </div>
+        <hr class="cizgi" role="separator" color="e9e9e9" size="1"/>
+    </div>
+    
+    <div class="banner-img-finish">
+        <img src="banner.png" alt="" class="banner-img" width="1200px" height="500px">
+    </div>
+
+    
+    
+    <div class="about">
+        <div class="container">
+              <div class="about-img">
+                 <img src="bizkimiz.png">   
+              </div>
+              <div class="about-text">
+                 <h4>Biz Kimiz?</h4>  
+                 <p>MEG Bilişim olarak bugüne kadar müşterilerimize bir satıcı gibi yaklaşmadık. İhtiyaçları olduğu anda yanlarında olmak, her türlü desteği hızlı, kaliteli ve kesintisiz bir biçimde sunmak ana ilkelerimiz oldu. Onlarla alıcı-satıcı ilişkisi yerine iş ortağı ilişkisi kurmayı hatta bir aile olabilmeyi becerebildik. Başta İzmir olmak üzere Manisa, Muğla, Denizli, Aydın gibi illerimizdeki kurumlara ürün, çözüm ve hizmet sunuyoruz. Yaptığımız çalışmaların temelinde; mü şterilerimizin bilişim teknolojilerini kullanarak daha verimli bir çalışma ortamına kavuşmaları ve rakiplerinden daha çevik kurumlara dönüşmelerinin gayretleri yatıyor. Bu çerçevede sadece ürün satmıyoruz, danışmanlık ve teknik destek hizmetlerimiz ile de her an müşterilerimizin yayında oluyoruz.</p>        
+              </div>                     
+        </div>      
+    </div>
+    <div class="paket-container">
+        <div class="dik-menu">
+            <ul>  
+                <li><a href="#tab_meg-kurumsal-paket" class="diklink" onclick="kategoriopen(event, 'Kurumsal')" id="defaultOpen" style="color: rgb(87, 87, 87);">MEG Kurumsal Paket</a></li>
+                <hr class="nan" role="separator" color="Silver" size="1">
+                <li><a href="#tab_Üts-entegrasyonu" class="dik-link" onclick="kategoriopen(event, 'Ust')">ÜTS Entegrasyonu</a></li>
+                <hr class="nan" role="separator" color="Silver">
+                <li><a href="#tab-ozel-yazilim" class="diklink" onclick="kategoriopen(event, 'Ozel')" >Ozel Yazılım</a></li>
+                <hr class="nan" role="separator" color="Silver" size="1">
+                <li><a href="#tab-sek" class="diklink" onclick="kategoriopen(event, 'Sektorel')" >Sektörel Yazılım</a></li>
+                <hr class="nan" role="separator" color="Silver" size="1">
+                <li><a href="#tab-jump" class="diklink" onclick="kategoriopen(event, 'Jump')" >Mikro Jump</a></li>
+                <hr class="nan" role="separator" color="Silver" size="1">
+                <li><a href="#tab-fly" class="diklink" onclick="kategoriopen(event, 'Fly')" >Mikro Fly</a></li>
+                <hr class="nan" role="separator" color="Silver" size="1">
+                <li><a href="#tab-run" class="diklink" onclick="kategoriopen(event, 'Run')" >Mikro Run</a></li>
+                <hr class="nan" role="separator" color="Silver" size="1">
+                <li><a href="#tab-mus" class="diklink" onclick="kategoriopen(event, 'Musavir')" >Mikro Müşavir</a></li>
+                <hr class="nan" role="separator" color="Silver" size="1">
+                <li><a href="#tab-sanal" class="diklink" onclick="kategoriopen(event, 'Sanal')">M3CX Sanal Santral</a></li>
+            </ul>
+        </div>
+        <hr class="dik-cizgi" role="separator" color="Silver" size="1">
+        <div class="yan-container">
+                <div id="Kurumsal" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="kitap.webp" width="600" height="550">
+                    </div>
+                    <h4>Meg Kurumsal Paket</h4>
+                    <p>İyi web sitesi her zaman kazandırır. Bildiğimiz gibi kurumsal web sitesi, hiçbir zaman var olması için yapılmaz. Ve tüm kurumsal web sitelerinin temel bir amacı bulunmaktadır. Bu amaç doğrultusunda belirleyici olan bazı kriterler görünüm, işlevsellik, içerik ve arama motoru optimizasyonudur. Bu amaç doğrultusunda olan tüm kriterlerin aslında tek bir amacı vardır..</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">Daha fazlası için bize ulaşın</div>
+                    </div>
+                </div>
+                
+                <div id="Ust" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="uts-entegrasyonu.png.webp" width="600" height="350">
+                    </div>
+                    <h4>ÜST Enetegrasyon</h4>
+                    <p>Ülkemizde üretilen veya ithal edilen tüm tıbbi cihazların ve kozmetik ürünlerin üretim bandından kullanıldığı yere kadar ürün takibini sağlayabilmek, son kullanıcıya kadar ürünü izleyebilmek için geliştirilen bir projedir. Ürünleri kayıt altına almak, izlemek, ürünlerle ilgili oluşacak tehlikeleri öngörmek ve hızlı önlem alabilmek ve güvensiz olan ürünlerin piyasadan daha hızlı şekilde kaldırılmasını sağlamaktır.Üretim ve satış yapılan ürünlerin bilgilerinin aktarılması için seçenekler sunuyoruz. Tıbbi cihaz üretici firmalar, optik, sağlık, perakende satış ve tüketici için kullanılması uygundur.Güvenli Ürüne Erişim, Etnik Denetim, Sağlık Politikası Geleceği, Ekonomiye Güçlü Katkı olarak dört kolda faydaları genelleştirilebilir.</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">DEMO için tıklayın!</div>
+                    </div>
+                </div>
+
+                <div id="Ozel" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="kitap.webp" width="600" height="550">
+                    </div>
+                    <h4>Özel Yazılım</h4>
+                    <p>Firmamızın varolan standartlar dışında size özgü ve ihtiyaçlarınız doğrultusunda oluşturmak istediği programların bütünüdür. Başka bir deyişle müşterinin yazılıma değil, yazılımın müşteriye uyarlanmasıdır. Size özel yazılımların oluşmasına ve yüksek verimde çalışmaya zemin hazırlayacak bir sistem oluşturulacaktır..</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">DEMO için tıklayın!</div>
+                    </div>
+                </div>
+
+
+                <div id="Sektorel" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="sek.webp" width="550" height="400">
+                    </div>
+                    <h4>Sektörel Yazılım</h4>
+                    <p>İyi web sitesi her zaman kazandırır. Bildiğimiz gibi kurumsal web sitesi, hiçbir zaman var olması için yapılmaz. Ve tüm kurumsal web sitelerinin temel bir amacı bulunmaktadır. Bu amaç doğrultusunda belirleyici olan bazı kriterler görünüm, işlevsellik, içerik ve arama motoru optimizasyonudur. Bu amaç doğrultusunda olan tüm kriterlerin aslında tek bir amacı vardır. Bu amaç ise tabi ki kurumların müşterileri ile en iyi iletişimi sağlayabilmeleridir. Kuruma ve hizmet veya ürünlere uygun bir görünüm, müşteri beklentilerini karşılayan içerikler, kullanımı kolaylaştıran işlevsellik ve kolaylıkla ulaşılmayı sağlayan arama motoru ve sosyal medya optimizasyonu her iyi web sitesi için gereklidir. Hal böyle olunca web sitesi tasarımı ve özellikle de kurumsal web sitesi tasarımı oldukça önem arz ediyor. Bu bağlamda hazırlanmış, öne çıkan ve kazandıran web siteleri için teklif isteyin.</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">Daha fazlası için bize ulaşın</div>
+                    </div>
+                </div>
+
+                <div id="Jump" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="jump.webp" width="300" height="50">
+                    </div>
+                    <h4>Mikro Jump</h4>
+                    <p>İyi web sitesi her zaman kazandırır. Bildiğimiz gibi kurumsal web sitesi, hiçbir zaman var olması için yapılmaz. Ve tüm kurumsal web sitelerinin temel bir amacı bulunmaktadır. Bu amaç doğrultusunda belirleyici olan bazı kriterler görünüm, işlevsellik, içerik ve arama motoru optimizasyonudur. Bu amaç doğrultusunda olan tüm kriterlerin aslında tek bir amacı vardır. Bu amaç ise tabi ki kurumların müşterileri ile en iyi iletişimi sağlayabilmeleridir. Kuruma ve hizmet veya ürünlere uygun bir görünüm, müşteri beklentilerini karşılayan içerikler, kullanımı kolaylaştıran işlevsellik ve kolaylıkla ulaşılmayı sağlayan arama motoru ve sosyal medya optimizasyonu her iyi web sitesi için gereklidir. Hal böyle olunca web sitesi tasarımı ve özellikle de kurumsal web sitesi tasarımı oldukça önem arz ediyor. Bu bağlamda hazırlanmış, öne çıkan ve kazandıran web siteleri için teklif isteyin.</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">Daha fazlası için bize ulaşın</div>
+                    </div>
+                </div>
+
+                <div id="Fly" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="fly.webp" width="300" height="150">
+                    </div>
+                    <h4>Mikro Fly</h4>
+                    <p>İyi web sitesi her zaman kazandırır. Bildiğimiz gibi kurumsal web sitesi, hiçbir zaman var olması için yapılmaz. Ve tüm kurumsal web sitelerinin temel bir amacı bulunmaktadır. Bu amaç doğrultusunda belirleyici olan bazı kriterler görünüm, işlevsellik, içerik ve arama motoru optimizasyonudur. Bu amaç doğrultusunda olan tüm kriterlerin aslında tek bir amacı vardır. Bu amaç ise tabi ki kurumların müşterileri ile en iyi iletişimi sağlayabilmeleridir. Kuruma ve hizmet veya ürünlere uygun bir görünüm, müşteri beklentilerini karşılayan içerikler, kullanımı kolaylaştıran işlevsellik ve kolaylıkla ulaşılmayı sağlayan arama motoru ve sosyal medya optimizasyonu her iyi web sitesi için gereklidir. Hal böyle olunca web sitesi tasarımı ve özellikle de kurumsal web sitesi tasarımı oldukça önem arz ediyor. Bu bağlamda hazırlanmış, öne çıkan ve kazandıran web siteleri için teklif isteyin.</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">Daha fazlası için bize ulaşın</div>
+                    </div>
+                </div>
+                
+
+                <div id="Run" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="run.webp" width="300" height="150">
+                    </div>
+                    <h4>Mikro Run</h4>
+                    <p>İyi web sitesi her zaman kazandırır. Bildiğimiz gibi kurumsal web sitesi, hiçbir zaman var olması için yapılmaz. Ve tüm kurumsal web sitelerinin temel bir amacı bulunmaktadır. Bu amaç doğrultusunda belirleyici olan bazı kriterler görünüm, işlevsellik, içerik ve arama motoru optimizasyonudur. Bu amaç doğrultusunda olan tüm kriterlerin aslında tek bir amacı vardır. Bu amaç ise tabi ki kurumların müşterileri ile en iyi iletişimi sağlayabilmeleridir. Kuruma ve hizmet veya ürünlere uygun bir görünüm, müşteri beklentilerini karşılayan içerikler, kullanımı kolaylaştıran işlevsellik ve kolaylıkla ulaşılmayı sağlayan arama motoru ve sosyal medya optimizasyonu her iyi web sitesi için gereklidir. Hal böyle olunca web sitesi tasarımı ve özellikle de kurumsal web sitesi tasarımı oldukça önem arz ediyor. Bu bağlamda hazırlanmış, öne çıkan ve kazandıran web siteleri için teklif isteyin.</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">Daha fazlası için bize ulaşın</div>
+                    </div>
+                </div>
+
+                <div id="Musavir" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="musavir.png" width="300" height="150">
+                    </div>
+                    <h4>Mikro Müşavir</h4>
+                    <p>İyi web sitesi her zaman kazandırır. Bildiğimiz gibi kurumsal web sitesi, hiçbir zaman var olması için yapılmaz. Ve tüm kurumsal web sitelerinin temel bir amacı bulunmaktadır. Bu amaç doğrultusunda belirleyici olan bazı kriterler görünüm, işlevsellik, içerik ve arama motoru optimizasyonudur. Bu amaç doğrultusunda olan tüm kriterlerin aslında tek bir amacı vardır. Bu amaç ise tabi ki kurumların müşterileri ile en iyi iletişimi sağlayabilmeleridir. Kuruma ve hizmet veya ürünlere uygun bir görünüm, müşteri beklentilerini karşılayan içerikler, kullanımı kolaylaştıran işlevsellik ve kolaylıkla ulaşılmayı sağlayan arama motoru ve sosyal medya optimizasyonu her iyi web sitesi için gereklidir. Hal böyle olunca web sitesi tasarımı ve özellikle de kurumsal web sitesi tasarımı oldukça önem arz ediyor. Bu bağlamda hazırlanmış, öne çıkan ve kazandıran web siteleri için teklif isteyin.</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">Daha fazlası için bize ulaşın</div>
+                    </div>
+                </div>
+
+                <div id="Sanal" class="kitapyazi">
+                    <div class="kitap-img">
+                        <img src="sanal.webp" width="300" height="150">
+                    </div>
+                    <h4>M3CX Sanal Santral</h4>
+                    <p>İyi web sitesi her zaman kazandırır. Bildiğimiz gibi kurumsal web sitesi, hiçbir zaman var olması için yapılmaz. Ve tüm kurumsal web sitelerinin temel bir amacı bulunmaktadır. Bu amaç doğrultusunda belirleyici olan bazı kriterler görünüm, işlevsellik, içerik ve arama motoru optimizasyonudur. Bu amaç doğrultusunda olan tüm kriterlerin aslında tek bir amacı vardır. Bu amaç ise tabi ki kurumların müşterileri ile en iyi iletişimi sağlayabilmeleridir. Kuruma ve hizmet veya ürünlere uygun bir görünüm, müşteri beklentilerini karşılayan içerikler, kullanımı kolaylaştıran işlevsellik ve kolaylıkla ulaşılmayı sağlayan arama motoru ve sosyal medya optimizasyonu her iyi web sitesi için gereklidir. Hal böyle olunca web sitesi tasarımı ve özellikle de kurumsal web sitesi tasarımı oldukça önem arz ediyor. Bu bağlamda hazırlanmış, öne çıkan ve kazandıran web siteleri için teklif isteyin.</p>
+                    <div class="devaminioku">
+                        <div class="devamyazi btn">Daha fazlası için bize ulaşın</div>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="son-container">
+        <div class="son">
+            <div style="max-width:1000px" class="card-img-top">
+                <img class="card-img-mx" src="ilk.webp" style="max-width:340px" />
+                <div class="card-body">
+                    <div class="baslik-h5">Tüm yönleriyle bodro hesaplama</div>
+                    <p class=" yazi ">Bordro nedir, bordrolarda dikkat edilmesi gereken unsurla nasıl yapılıkla karşımıza çıkıyor. Bu yazımızda, tüm çalışanları ilgilendiren bordro kavramını tüm yönleriyle ele alıyoruz. Maaş bordrolarının hazırlanması ve takip edilmesi kanunlara uygun olarak yapılmadığında işletmelere belirli yaptırımlar.</p>
+                </div>
+            </div>
+        </div>
+        <div class="son">
+            <div style="max-width:1000px" class="card-img-top2">
+                <img class="card-img-mx" src="ikinci.webp" style="max-width:340px" />
+                <div class="card-body">
+                    <div class="baslik-h5">E-fatura nedir?</div>
+                    <p class=" yazi ">E-Fatura uygulaması, faturaların internet bağlantısı kullanılarak elektronik ortamda düzenlenmesini, paylaşılmasını ve izlenmesini sağlayan bir sistemdir. Baskı araçları ve kağıt kullanılmadan sunucular aracılığı ile firmadan firmaya iletilen e-Faturalar, 1 Eylül 2013 yılından beri hayatımızda.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="rsm">
+        <img class="rsm-img" src="sonbanner.png"  width="1520" height="500"/>
+
+    </div> 
+    <footer>
+        <div class="footer-container">
+            <div class="footer-birinci-container">
+                <img class="card-img" src="megbilisim-logo-beyaz.png" alt="meglogo" width="300" height="120"/>
+                <p>Danışmanlık ve teknik destek hizmetlerimiz her an <br> müşterilerimizin yayında oluyoruz</p>
+            </div>
+            <div class="footer-ikinci-container">
+                <h4 class="footer-orta-baslik">KURUMSAL</h4>
+                <hr class="kisa-cizgi" role="separator" color="#696969" size="5"/>
+                <li><a href="#" class="footer-link">Hakkımızda</a></li>
+                <hr class="fcizgi" role="separator" color="#696969" size="1"/>
+                <li><a href="#" class="footer-link">Gizlilik Politikası</a></li>
+                <hr class="fcizgi" role="separator" color="#696969" size="1"/>
+                <li><a href="#" class="footer-link">Gizlilik Politikası</a></li>
+                <hr class="fcizgi" role="separator" color="#696969" size="1"/>
+                <li><a href="#" class="footer-link">Kullanım Koşulları</a></li>
+            </div>
+            <div class="footer-son-container">
+                <div class="footer-iletisim">
+                    <h4 class="widget-title">Bize Ulaşın</h4>
+                    <p><i class="fa fa-home" style="color:white" ></i> Manavkuyu Mahallesi 278/4 Sokak No:9 D:2 Bayraklı / İZMİR</p>
+                    <p><i class="fa fa-envelope" style="color:white" ></i> info@megyazilim.com</p>
+                    <p><i class="fa fa-phone" style="color:white"></i> +90 232 320 03 35</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-sonu">
+            <div class="footer-sonu-yazi"><span class="footer-tech">Copyright 2023 ©  </span>
+                <a target="_blank" rel="noreferrer" class="palit" href="https://megbilisim.com/">Meg Bilişim</a>
+            </div>
+        </div>   
+    </footer>
+
+    <script>
+        // Kullanıcı belgenin üstünden 80 piksel aşağı kaydırdığında, 
+        //gezinme çubuğunun dolgusunu ve logonun yazı tipi boyutunu yeniden boyutlandırın
+        window.onscroll = function() {scrollFunction()};
+        
+        function scrollFunction() {
+          if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            document.getElementById("alt-menu").style.padding = "2px 0px"; //(resimin olduğu bar için)
+            document.getElementById("card-img").style.width = "90px"; //aşağı inerden daralınca olacak kısım (resim için)
+            document.getElementById("card-img").style.height = "50px";
+
+          } else {
+            document.getElementById("alt-menu").style.padding = "10px";
+            document.getElementById("card-img").style.width = "140px"; // ilk hali geniş hali için
+            document.getElementById("card-img").style.height = "60px";
+
+
+          }
+        }
+
+        function kategoriopen(evnt, kategoriName) {
+        var i, kitapyazi, diklink;
+        kitapyazi = document.getElementsByClassName("kitapyazi");
+        for (i = 0; i < kitapyazi.length; i++) {
+            kitapyazi[i].style.display = "none";
+        }
+        diklink = document.getElementsByClassName("diklink");
+        for (i = 0; i < diklink.length; i++) {
+            diklink[i].className = diklink[i].className.replace(" active", "");
+        }
+        document.getElementById(kategoriName).style.display = "block";
+        evt.currentTarget.className += " active";
+        }
+
+        document.getElementById("defaultOpen").click();
+
+        
+        function openNav() {
+        document.getElementById("menuItems").style.width = "250px";
+        }
+
+        function closeNav() {
+        document.getElementById("menuItems").style.width = "0";
+        }
+
+
+
+    </script>
+    
+
+    
+</body>
+</html>
+
+
+
