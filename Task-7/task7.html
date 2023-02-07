@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: Lato, Arial;
+            text-align: center;
+            color: #eee;
+            background-color: #6E98BA;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .container{
+            background-color: #334F70;
+            box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .1);
+            width: 500px;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 150px;
+
+        }
+        .login{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center ;
+            width: 300px;
+            row-gap: 20px;
+        }
+        button{
+           background-color: rgb(214, 82, 34);
+           color: #eee;
+           font: bold;
+            border: none;
+            height: 40px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 15px;
+            width: 200px;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+        button:hover{
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+        .title{
+            margin-bottom: 20px;
+            font-family: sans-serif;
+            color: white;
+        }
+        input{
+            border: none;
+            border-radius: 5px;
+            height: 30px;
+            width: 300px;
+            outline: none;
+            display: flex;
+            text-align: center;
+        }
+ 
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="title">
+            <h2>Kullanıcı Giriş Ekranı</h2>
+        </div>
+        <div class="login">
+            <input  placeholder="Kullanıcı Adı" type="text" id="adin">   <!-- isim girmek için input etiketi içinde id oluşturuyoruz -->
+            <input  placeholder="Şifre" type="password" id="sifren">   <!-- şifre girmek için input etiketi içinde id oluşturuyoruz -->
+            <button type="button" id="btn">Tıkla</button>
+        </div>
+    </div>
+
+    
+    
+    <script>
+        const button = document.getElementById("btn"); // btn elementini alıyorum
+
+        //addEventListener: bir kullanıcı bir düğmeyi tıkladığında olduğu gibi, belirli bir olay gerçekleştiğinde çağrılacak işlevleri ayarlamanıza olanak tanır
+        button.addEventListener("click",   // tıklandığında
+        function(){   // bu fonsiyonu gerçekleştirsin:
+            const adin = document.getElementById("adin");   //adin elementini alıyoruz
+            console.log(adin.value);   // adin elementinin değerinin konsola yazıdırıyoruz
+            adin.value = "";  //adin elementinin değerinin temizliyorum
+            const sifren = document.getElementById("sifren");  //sifren elementini alıyoruz
+            console.log(sifren.value);  // sifren elementinin değerinin konsola yazıdırıyoruz
+            sifren.value = "";  //sifren elementinin değerinin temizliyorum
+        });
+    
+    
+    
+    </script>
+</body>
+</html>
