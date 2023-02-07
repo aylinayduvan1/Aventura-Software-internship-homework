@@ -4,36 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>nüfus verileri-ek</title>
     <link rel="stylesheet" type="text/css" href="task12.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container1">
         <p class="baslik">Country Analysis top 10</p>
         <div class="button-menu">
             <button  id="maxpopulation">En çok nüfusa sahip 10 ülke</button>
             <button  id="languages10">En çok konuşulan 10 dil</button>
         </div>
     </div>  
-    <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-   
-    
-      
     <script>
         const countries = [
             {
@@ -2052,28 +2034,68 @@
         let maxpopulation = document.getElementById('maxpopulation');
         let languages10 = document.getElementById('languages10');
 
+        function yuzde(gelen,maxvalue){
+            return (gelen/maxvalue)*100
+        }
+
         maxpopulation.addEventListener("click", function(){ // butona tıklandığında
-        let nufus = countries.sort((a,b) => {
-            return b.population - a.population;
+            // div elementlerini seçtim
+            let deletediv = document.querySelectorAll(".collap");
+            // Her div için
+            deletediv.forEach(function(div) {
+                // div elementini sildim
+                div.remove();
             });
-            var largest10 = nufus.slice(0, 10);
-            //console.log(largest10);
-            largest10.forEach(function(e){
-                var newDiv = document.createElement("div");
-                newDiv.className="collapse";
-                newDiv.id="demo"
-                var content = document.createTextNode(e.name + " - " + e.population);
-                newDiv.appendChild(content);
-                document.body.appendChild(newDiv);
+            let nufus = countries.sort((a,b) => {
+                return b.population - a.population;
+                });
+                var largest10 = nufus.slice(0, 10);
+                //console.log(largest10);
+                largest10.forEach(function(e){
+                    var newDiv = document.createElement("div");
+                    newDiv.className="collap";
+                    newDiv.id="demo"
+                    var rcontent = document.createElement("p");
+                    rcontent.innerHTML = e.name;
+                    var proggenel =document.createElement("div");
+                    proggenel.className="container"
+                    var progressBar = document.createElement("div");
+                    progressBar.className ="progress"
+                    var prog = document.createElement("div");
+                    prog.className ="progress-bar"
+                    prog.role ="progressbar"
+                    prog.ariaValueNow="70"
+                    prog.ariaValueMin="0"
+                    prog.ariaValueMax="100"
+                    prog.style= `width: ${yuzde(e.population, largest10[0].population)}%`; //gelen değeri e ile çekiyoruz.
+                    //largest10 büyükten küçüğe sıralanmıştı. ilk değerini alarak max değere ulaşmış olduk.
+                    var lcontent = document.createElement("p");
+                    lcontent.innerHTML = e.population;
+
+                    newDiv.appendChild(rcontent);
+                    newDiv.appendChild(proggenel);
+                    proggenel.appendChild(progressBar)
+                    progressBar.appendChild(prog)
+                    newDiv.appendChild(lcontent);
+                    document.body.appendChild(newDiv);
+                    console.log(newDiv)
+
+                });
             });
-        });
 
 
         languages10.addEventListener("click", function(){ // butona tıklandığında
+            // div elementlerini seçtim
+            let deletediv = document.querySelectorAll(".collap");
+            // Her div için
+            deletediv.forEach(function(div) {
+                // div elementini sildim
+                div.remove();
+            });
             let allLang = [{
                 country:"English",
                 count: 0
-            }]
+            }]       
             countries.forEach(function(element){
                 element.languages.forEach(function(language){
                     let tempCountry = allLang.find(e => e.country === language)
@@ -2089,23 +2111,39 @@
             let langu = allLang.sort((a,b) => {
             return b.count - a.count;
             });
-            var largest10 = langu.slice(0, 10);
+            var lang10 = langu.slice(0, 10);
             //console.log(largest10);
-            largest10.forEach(function(e){
+            lang10.forEach(function(e){
                 var newDiv = document.createElement("div");
+                newDiv.className="collap";
+                newDiv.id="demo"
                 var rcontent = document.createElement("p");
                 rcontent.innerHTML = e.country;
-                var progressbar = document.createElement("div")
-                var lcontent = document.createElement("p")
-                lcontent.innerHTML = e.count
-                newDiv.className="collapse";
-                newDiv.id="demo"
-                var content = document.createTextNode(newDiv);
-                
-              
+                var proggenel =document.createElement("div");
+                proggenel.className="container"
+                var progressBar = document.createElement("div");
+                progressBar.className ="progress"
+                var prog = document.createElement("div");
+                prog.className ="progress-bar"
+                prog.role ="progressbar"
+                prog.ariaValueNow="70"
+                prog.ariaValueMin="0"
+                prog.ariaValueMax="100"
+                prog.style= `width: ${yuzde(e.count, lang10[0].count)}%`;
+                var lcontent = document.createElement("p");
+                lcontent.innerHTML = e.count;
+
+                newDiv.appendChild(rcontent);
+                newDiv.appendChild(progressBar);
+                newDiv.appendChild(proggenel);
+                proggenel.appendChild(progressBar)
+                progressBar.appendChild(prog)
+                newDiv.appendChild(lcontent);
+                document.body.appendChild(newDiv);
+                console.log(newDiv)            
             });
-        });
-        
+        }); 
+
         // let object1 = {};
         // let languages= "english"//key
         // object1[languages] = 1; //value
@@ -2117,13 +2155,10 @@
         // console.log(object1[languages])
         // console.log(languages)
 
-        function widthCal(value,max){
-        var data = (value/max) * 100
-        return "width : " + data + "%"
  
     </script>
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

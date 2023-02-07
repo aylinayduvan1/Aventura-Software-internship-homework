@@ -2021,11 +2021,18 @@ let para = document.getElementById('currency');
 //En çok nüfusa sahip ülke, population
 //küçükten büyüğe doğru sırlandı.
 most.addEventListener("click", function(){ // butona tıklandığında
+  // div elementlerini seçtim
+  let deletediv = document.querySelectorAll(".collapa");
+  // Her div için
+  deletediv.forEach(function(div) {
+      // div elementini sildim
+      div.remove();
+  }); 
   let nufus = countries.sort((a,b) => {
     return b.population - a.population;
     });
     var newDiv = document.createElement("div");
-    newDiv.className="collapse";
+    newDiv.className="collapa";
     newDiv.id = "demo"
     var content = document.createTextNode("En çok nüfusa sahip ülke:" + nufus[0].name);
     newDiv.appendChild(content);
@@ -2035,11 +2042,18 @@ most.addEventListener("click", function(){ // butona tıklandığında
 //En az nüfusa sahip ülke, population
 //küçükten büyüğe doğru sırlandı.
 least.addEventListener("click", function(){ // butona tıklandığında
+  // div elementlerini seçtim
+  let deletediv = document.querySelectorAll(".collapa");
+  // Her div için
+  deletediv.forEach(function(div) {
+      // div elementini sildim
+      div.remove();
+  }); 
   let nufus = countries.sort((a,b) => { //sort()  sıralama fonsiyonu
     return a.population - b.population;
     });
     var newDiv = document.createElement("div");
-    newDiv.className="collapse";
+    newDiv.className="collapa";
     newDiv.id = "demo"
     var content = document.createTextNode("En az nüfusa sahip ülke:" + nufus[0].name);
     newDiv.appendChild(content);
@@ -2048,6 +2062,13 @@ least.addEventListener("click", function(){ // butona tıklandığında
 
 //Dili ingilizce olan ülkeler, languages
 ingilizce.addEventListener("click", function(){ // butona tıklandığında
+  // div elementlerini seçtim
+  let deletediv = document.querySelectorAll(".collapa");
+  // Her div için
+  deletediv.forEach(function(div) {
+      // div elementini sildim
+      div.remove();
+  }); 
   ingilizce = countries.filter(function(e){  //filter() filteleme fonsiyonu dizi içerisinde bulunan eleman ile işlem yapar 
     //ve true dönen tüm değerleri yeni dizi oluşturarak geri döndürür.
     if(e.languages.includes("English")){
@@ -2058,7 +2079,7 @@ ingilizce.addEventListener("click", function(){ // butona tıklandığında
   }); 
   ingilizce.forEach(function(e){
     var newDiv = document.createElement("div");
-    newDiv.className="collapse";
+    newDiv.className="collapa";
     newDiv.id = "demo"
     var content = document.createTextNode(e.name);
     newDiv.appendChild(content);
@@ -2069,6 +2090,13 @@ ingilizce.addEventListener("click", function(){ // butona tıklandığında
 
 //Euro ve Pound kullanan. currency
 para.addEventListener("click", function(){ // butona tıklandığında
+ // div elementlerini seçtim
+ let deletediv = document.querySelectorAll(".collapa");
+ // Her div için
+ deletediv.forEach(function(div) {
+     // div elementini sildim
+     div.remove();
+ }); 
   para = countries.filter(function(e){
     if(e.currency.includes("Euro") || e.currency.includes("pound")){
       return true;
@@ -2078,7 +2106,7 @@ para.addEventListener("click", function(){ // butona tıklandığında
 
   para.forEach(function(e){
     var newDiv = document.createElement("div");
-    newDiv.className="collapse";
+    newDiv.className="collapa";
     newDiv.id = "demo"
     var content = document.createTextNode(e.name);
     newDiv.appendChild(content);
@@ -2090,6 +2118,10 @@ para.addEventListener("click", function(){ // butona tıklandığında
 
 
 para.addEventListener("click", function(){ // butona tıklandığında
+  let demo = document.getElementById("demo");
+  if(demo){
+    demo.remove();
+  } 
   para = countries.filter(function(e){
     if(e.currency.includes("Euro") || e.currency.includes("pound")){
       return true;
@@ -2099,7 +2131,7 @@ console.log(e.currency)
 
   para.forEach(function(e){
     var newDiv = document.createElement("div");
-    newDiv.className="collapse";
+    newDiv.className="collapa";
     newDiv.id = "demo"
     var content = document.createTextNode(e.name);
     newDiv.appendChild(content);
