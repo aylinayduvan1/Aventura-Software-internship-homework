@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="task13.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="top">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="task13.html">Ana sayfa</a>
+            <a href="birinci.html">Birinci</a>
+            <a href="ikinci.html">İkinci</a>
+            <a href="ucuncu.html">Üçüncü</a>
+            <a href="dorduncu..html">Dördüncü</a>
+            <a href="ekgorev.html">Ek görev</a>
+
+          </div>
+    </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <div class="p-div2">
+        <p>İngiltere’de ve Amerika’da faaliyet göstermeyen kaç adet şirket var.</p>
+      </div>  
+      
+    
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+      
+      
+      //Websitesi .com ile biten şirketler.
+      (async()=> {
+        const response = await fetch('companies.json');
+        const companies = await response.json();
+        
+        // Verileri filtrele
+        let countryfilter = companies.filter(e => e.country != 'United States' && e.country != 'United Kingdom')
+        .map(e => e.country);
+
+        let newDiv = document.createElement('h1');
+        newDiv.innerText = "Toplam ülke sayısı: " + countryfilter.length;
+        document.body.appendChild(newDiv);
+
+        //console.log(countryfilter)
+        //console.log(`İngiltere ve Amerika'da faaliyet göstermeyen şirket sayısı: ${countryfilter.length}`);
+
+      })()
+      
+      
+
+    </script>
+</body>
+</html>

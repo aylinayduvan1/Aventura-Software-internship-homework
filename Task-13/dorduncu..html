@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="task13.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="top">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="task13.html">Ana sayfa</a>
+            <a href="birinci.html">Birinci</a>
+            <a href="ikinci.html">İkinci</a>
+            <a href="ucuncu.html">Üçüncü</a>
+            <a href="dorduncu..html">Dördüncü</a>
+            <a href="ekgorev.html">Ek görev</a>
+
+          </div>
+    </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <div class="p-div">
+        <p>+44 ile başlayan şirketlerin listesi:</p>
+      </div>   
+
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+      //Telefon numarası +44 ile başlayan şirketleri listeleyin 
+  //ama şirketin resmini ve ülke bayrağını da gösterebileceğiniz bir component olsun.
+(async()=> {
+    const response = await fetch('companies.json');
+    const companies = await response.json();
+        
+    // Telefon numarası +44 ile başlayan şirketleri filtrele
+    let filter44 = companies.filter(e => /^\+44/.test(e.companyPhone));
+    //RegExp (Regular Expression) kullanabilirsiniz. RegExp, 
+    //belirli bir düzenli ifade (string) deseniyle eşleşen metin kalıntılarını 
+    //bulmak için kullanılan bir araçtır.
+
+    // Şirket verilerinin ülkesine göre bayraklarını bulmak için diğer dosyadan veri çek
+    (async()=> {
+      const response = await fetch('countries.json');
+      const countries = await response.json();
+     
+        // Filtrelenmiş şirket verileri için component 
+            let companyList = document.createElement('div');
+            //classList.add div elementine 'companydivList' sınıfını ekler.
+            companyList.classList.add('companydivList');
+
+        filter44.forEach(company => {
+          let companyData = document.createElement('div');
+            //classList.add div elementine 'company-data' sınıfını ekler.
+          companyData.classList.add('company-data');
+
+
+          // Şirket resmi
+          let companyPic = document.createElement('img');
+          //src ile company.companyPic den gelen Url i  resime döndürür.
+          companyPic.src = company.companyPic;
+          // companyPic i companyData nın çocuğu yaparız içinde görünür.
+          companyData.appendChild(companyPic);
+
+
+
+          // Şirket ismi
+          let companyName = document.createElement('h1');
+          //textContent ile compaynName içindeki yazıyı okururuz.
+          companyName.textContent = company.companyName;
+          //ve companyName i companyData nın çocuğu yaparız içinde görünür.
+          companyData.appendChild(companyName);
+
+
+
+
+          // Ülke bayrağı
+          let countryFlag = countries.find(country => country.name === company.country);
+            let flag = document.createElement('img');
+            flag.src = countryFlag.flag;
+            companyData.appendChild(flag);
+         
+
+          // Component'i sayfaya ekle
+          companyList.appendChild(companyData);
+        });
+
+        document.body.appendChild(companyList);
+    })();
+     
+  })();
+  
+    </script>
+</body>
+</html>

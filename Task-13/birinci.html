@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="task13.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="top">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="task13.html">Ana Sayfa</a>
+            <a href="birinci.html">Birinci</a>
+            <a href="ikinci.html">İkinci</a>
+            <a href="ucuncu.html">Üçüncü</a>
+            <a href="dorduncu..html">Dördüncü</a>
+            <a href="ekgorev.html">Ek görev</a>
+
+          </div>
+    </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <div class="p-div">
+        <p>Telefon numarası +33 ile başlayanlar:</p>
+      </div>          
+    <script>
+      function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+    (async() => {
+      //Telefon numarası +33 ile başlayanların tüm bilgilerini getirmek için.
+    const  response  = await fetch('companies.json')
+    const companies = await response.json()
+    //console.log(response)
+
+
+    // Telefon numarası +33 ile başlayan şirketleri filtrele
+    let filter44 =  companies.filter(e => /^\+33/.test(e.companyPhone));
+    //RegExp (Regular Expression) kullanabilirsiniz. RegExp, 
+    //belirli bir düzenli ifade (string) deseniyle eşleşen metin kalıntılarını 
+    //bulmak için kullanılan bir araçtır.
+
+    // Şirket verilerinin ülkesine göre bayraklarını bulmak için diğer dosyadan veri çek
+        // Filtrelenmiş şirket verileri için component 
+        let companyList = document.createElement('div');
+        //classList.add div elementine 'companydivList' sınıfını ekler.
+        companyList.classList.add('companydivList');
+
+        filter44.forEach(company => {
+          let companyData = document.createElement('div');
+            //classList.add div elementine 'company-data' sınıfını ekler.
+          companyData.classList.add('company-data');
+
+
+          // Şirketin idsi
+          let companyid = document.createElement('h1');
+          //textContent ile compaynName içindeki yazıyı okururuz.
+          companyid.textContent = company.id;
+          //ve companyName i companyData nın çocuğu yaparız içinde görünür.
+          companyData.appendChild(companyid);
+
+          // Şirket ismi
+          let companyName = document.createElement('h1');
+          //textContent ile compaynName içindeki yazıyı okururuz.
+          companyName.textContent = company.companyName;
+          //ve companyName i companyData nın çocuğu yaparız içinde görünür.
+          companyData.appendChild(companyName);
+
+
+          // Şirket numarası
+          let companyPhone = document.createElement('h1');
+          //textContent ile compaynName içindeki yazıyı okururuz.
+          companyPhone.textContent = company.companyPhone;
+          //ve companyName i companyData nın çocuğu yaparız içinde görünür.
+          companyData.appendChild(companyPhone);
+
+
+          // Şirketin ülkesi
+          let companyCoutry = document.createElement('h1');
+          //textContent ile compaynName içindeki yazıyı okururuz.
+          companyCoutry.textContent = company.country;
+          //ve companyName i companyData nın çocuğu yaparız içinde görünür.
+          companyData.appendChild(companyCoutry);
+
+          // Şirket resmi
+          let companyPic = document.createElement('img');
+          //src ile company.companyPic den gelen Url i  resime döndürür.
+          companyPic.src = company.companyPic;
+          // companyPic i companyData nın çocuğu yaparız içinde görünür.
+          companyData.appendChild(companyPic);
+
+
+
+          // Component'i sayfaya ekle
+          companyList.appendChild(companyData);
+        });
+
+        document.body.appendChild(companyList);
+
+
+    })()
+    
+      
+    </script>
+</body>
+</html>

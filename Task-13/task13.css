@@ -1,0 +1,140 @@
+body {
+    font-family: "Lato", sans-serif;
+    background-color: #8D7688;
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #725368;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 100px;
+  }
+
+
+  .sidenav a {
+    display: inline-block;
+    width: 210px;
+    padding: 8px 8px 50px 30px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #F1EEDB;
+    transition: all 0.3s;
+    
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  span{
+    color: #F1EEDB;
+    margin-left: 50px;
+  }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    left: 120px;
+    font-size: 47px;
+    margin-left: 50px;
+    overflow: hidden;
+  }
+ 
+  .top{
+    margin-top: 20px;
+  }
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+.giristitle{
+    height: 600px;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+p{
+    width: 800px;
+    color:  #F1EEDB;
+    line-height: 100px;
+    letter-spacing: 5px;
+    font-family: "fantasy";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.p-div{
+    height: 75px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.p-div2{
+    height:300px;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+h1{
+    color:#F1EEDB;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+    margin-bottom: 10px;
+    font-size: 20px;
+    margin-right: 20px;;
+}
+  
+  .companydivList {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .company-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin: 40px;
+    padding: 20px;
+    border: 1px solid #F1EEDB;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #F1EEDB;
+  }
+  
+  .company-data img {
+    width: 65%;
+    margin-bottom: 20px;
+  }
+  
+  .company-data h1 {
+    margin-bottom: 20px;
+  }
+  .collapa{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 80px;
+  }
+  
+  
+  
+  
+  

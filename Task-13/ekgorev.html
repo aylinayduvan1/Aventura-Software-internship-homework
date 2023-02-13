@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="task13.css">
+    <title>Document</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js'></script>
+</head>
+<body>
+    <div class="top">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="task13.html">Ana sayfa</a>
+            <a href="birinci.html">Birinci</a>
+            <a href="ikinci.html">İkinci</a>
+            <a href="ucuncu.html">Üçüncü</a>
+            <a href="dorduncu..html">Dördüncü</a>
+            <a href="ekgorev.html">Ek görev</a>
+
+          </div>
+    </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+      <div class="p-div">
+        <p>Ek Görev</p>
+      </div> 
+      <div class="collapa">
+        <canvas id="countries" width="600" height="400"></canvas>
+        <canvas id="countries2" width="600" height="400"></canvas>
+      </div>
+      
+    
+  <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+
+      var pieData = [];
+      var pieOptions = {
+           segmentShowStroke : false,
+           animateScale : true
+      }
+      // pasta grafik tuvalini al
+      var countries = document.getElementById("countries").getContext("2d"); //getContent("2d"): 
+      
+      (async()=> {
+        const response = await fetch('companies.json');
+        const companies = await response.json();
+        
+        //her alanda kaç şirket bulunduğu:
+        let allFields = [];
+
+        companies.forEach(function(element){
+            let tempField = allFields.find(e => e.field === element.fields);
+            if(tempField === undefined){
+                allFields.push({field: element.fields, count: 1});
+            }else{
+                tempField.count += 1;
+            }
+        });
+        console.log(allFields)
+
+        // let newDiv = document.createElement("div");
+        // newDiv.className="collapse";
+
+        // allFields.forEach(element => {
+        // let fieldCount = document.createElement("h1");
+        // fieldCount.innerHTML = `şirketin çalışma alanı: ${element.field}, çalışma alanı sayısı: ${element.count}`;
+        // newDiv.appendChild(fieldCount);
+        // });
+
+        allFields.forEach(element => {
+            pieData.push({
+                value: element.count,
+                label: `alanlara göre şirket sayısı: ${element.field}`,
+                color: getRandomColor()
+            });
+        });
+
+
+        // ülke başına kaç şirket var bunların sayısını:
+
+        var pieData2 = [];
+        var pieOptions2 = {
+            segmentShowStroke : false,
+            animateScale : true
+        }
+
+        var countries2 = document.getElementById("countries2").getContext("2d");
+
+            let allCountry = [];
+
+        companies.forEach(function(element){
+            let tempCounrty = allCountry.find(e => e.country === element.country);
+            if(tempCounrty === undefined){
+                allCountry.push({country: element.country, count: 1});
+            }else{
+                tempCounrty.count += 1;
+            }
+        });
+        allCountry.forEach(element => {
+            pieData2.push({
+                value: element.count,
+                label: `ülke başına düşen şirket sayısı: ${element.country}`,
+                color: getRandomColor()
+            });
+        });
+        
+        // console.log(allCountry);
+
+        // allCountry.forEach(element => {
+        // let ContryCount = document.createElement("h1");
+        // ContryCount.innerHTML = `ülke: ${element.country}, şirket sayısı: ${element.count}`;
+        // newDiv.appendChild(ContryCount);
+        // });
+
+        // document.body.appendChild(newDiv);
+
+        
+        // pasta grafiği çiz
+        new Chart(countries).Pie(pieData, pieOptions);
+        new Chart(countries2).Pie(pieData2, pieOptions2);
+
+
+      })();
+
+      function getRandomColor() {
+        var colors = ['#725368', '#F1EEDB', '#D9B4A3', '#C19185', '#82929A', '#D3BFBC', '#D1DBBD',
+        '#91AA9D', '#3E606F', '#8798A0', '#8BA9C6', '#BDD3DE', '#8A8688'];
+        return colors[Math.floor(Math.random() * colors.length)];
+        }
+  </script>
+
+     
+</body>
+</html>
