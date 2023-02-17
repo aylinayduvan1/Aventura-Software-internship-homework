@@ -1,0 +1,103 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #4BA47E;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.container{
+  width: 400px;
+  background-color: #00A388;
+  border-radius: 12px;
+  color:#00A388;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+
+}
+input{
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #00A388;
+
+}
+input:focus{
+  outline:none;
+}
+button{
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: 1px solid #00A388;
+  margin-left: 10px;
+  color: #00A388;
+  cursor:pointer;
+}
+button:hover{
+  box-shadow: 5px 5px 10px #11110e;
+  transition: 1s;
+}
+.todolist-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+.todolist{
+  background-color: #00A388;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 8px;
+  padding: 10px 20px;
+  margin: 10px 0px;
+  color: white;
+  font-size: 18px;
+
+}
+.inclusive{
+  background-color: #B1EDBF;
+  border-radius: 12px;
+  padding: 40px 40px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+h2{
+  color: #00A388;
+  margin-bottom: 30px;
+  font-size: 40px;
+  font-style: italic;
+}
+i{
+  cursor: pointer;
+  margin: 5px;
+}
+.tamamlandi{
+  text-decoration: line-through;
+}
