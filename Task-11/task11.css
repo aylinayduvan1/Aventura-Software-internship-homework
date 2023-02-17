@@ -49,6 +49,8 @@ body {
     position: relative;
     display: inline-block;
     text-align: center;
+    width: 100%;
+
 }
 .menu a:hover{
     color: rgb(138, 107, 221);
